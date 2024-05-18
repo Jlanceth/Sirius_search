@@ -28,20 +28,7 @@ def search(text: str, coll: int):
 
         # Проверка наличия результатов
         if not results:
-            # Получение всех терминов и аббревиатур для предложения исправлений
-            cur.execute("SELECT term_eng, abbr_eng, term_rus, abbr_rus FROM name_table")
-            all_terms = cur.fetchall()
-            
-            # Создание списка всех возможных терминов и аббревиатур
-            all_terms_flat = [item for sublist in all_terms for item in sublist if item]
-
-            # Использование thefuzz для нахождения похожих слов
-            suggestions = process.extract(text, all_terms_flat, limit=5)
-
             print("По вашему запросу ничего не найдено.")
-            print("Возможно вы имели ввиду:")
-            for suggestion in suggestions:
-                print(f"- {suggestion[0]}")
             return
 
         # Вывод результатов на экран
