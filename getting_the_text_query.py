@@ -1,8 +1,8 @@
-from bd import search
+from search import search
 
 while True:
     # Запрос текста для поиска у пользователя
-    text_query = input("Введите слово для поиска: ")
+    text_query = input("Поиск: ")
 
     # Запрос количества ответов у пользователя
     while True:
